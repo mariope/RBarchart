@@ -13,8 +13,8 @@
 #' @param only optional; Returns only specified fields. Example symbol,name
 #' @return xts
 #' @examples
-#' getHistory(symbols = 'ESM19')
-#' getHistory(symbols = 'NGM19,ESM19', fields = 'openInterest')
+#' getQuote(symbols = 'ESM19')
+#' getQuote(symbols = 'NGM19,ESM19', fields = 'openInterest')
 #' @seealso \url{https://www.barchart.com/ondemand/api/getQuote}
 #' @export
 getQuote <- function(symbols, fields = NULL, only = NULL) {
