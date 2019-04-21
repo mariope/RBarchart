@@ -18,6 +18,6 @@ Description: Barchart OnDemand features a diverse set of market data and informa
 License: GPL-3 | file LICENSE
 Encoding: UTF-8
 LazyData: true
-URL:  https://github.com/mariope/barronsCOT
-BugReports: https://github.com/mariope/barronsCOT/issues
-RoxygenNote: 5.0.1
+URL: https://github.com/mariope/RBarchart
+BugReports: https://github.com/mariope/RBarchart/issues
+RoxygenNote: 6.0.1
