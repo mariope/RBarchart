@@ -1,14 +1,12 @@
 #' setAPIkey Barchart.
-#' The setAPIkey is used to setup the Barchart API key.
 #'
-#' \code{setAPIkey} returns an xts.
-#' The data has:
-#' - Tot
+#' \code{setAPIkey} returns a hide APIkey variable.
+#' The setAPIkey is used to setup the Barchart API key.
 #'
 #' @author Mario Pisa
 #' @param apikey required; Barchart API key
 #' @param premium optional; default = FALSE
-#' @return xts
+#' @return var
 #' @examples
 #' setAPIkey(key = '<Your Barchart API key>')
 #' setAPIkey(key = '<Your Barchart API key>', premium = TRUE)

@@ -2,8 +2,7 @@
 % Please edit documentation in R/setAPIkey.R
 \name{setAPIkey}
 \alias{setAPIkey}
-\title{setAPIkey Barchart.
-The setAPIkey is used to setup the Barchart API key.}
+\title{setAPIkey Barchart.}
 \usage{
 setAPIkey(apikey, premium = FALSE)
 }
@@ -13,12 +12,11 @@ setAPIkey(apikey, premium = FALSE)
 \item{premium}{optional; default = FALSE}
 }
 \value{
-xts
+var
 }
 \description{
-\code{setAPIkey} returns an xts.
-The data has:
-- Tot
+\code{setAPIkey} returns a hide APIkey variable.
+The setAPIkey is used to setup the Barchart API key.
 }
 \examples{
 setAPIkey(key = '<Your Barchart API key>')

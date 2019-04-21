@@ -1,11 +1,9 @@
 #' getHistory Barchart data.
+#'
+#' \code{getHistory} returns an data frame.
 #' The getHistory API is used to request historical time series data on stocks,
 #' indexes, mutual funds, ETFs, futures, foreign exchange, or cryptocurrencies.
 #' Historical data is available as tick, minute bars or end-of-day data.
-#'
-#' \code{getHistory} returns an xts.
-#' The data has:
-#' - Tot
 #'
 #' @author Mario Pisa
 #' @param symbol Required; A symbol or code that identifies a financial instrument.
@@ -25,7 +23,7 @@
 #' @param backAdjust optional; This parameter specifies whether the contracts in the series will be adjusted based on the roll-gap between the closing prices of the current contract and the previous contract on the day of the switch. Valid values are true and false. If not specified, the default value is false resulting in a non-adjusted query. This parameter only applies to multi-contract futures queries and is ignored for all other queries.
 #' @param daysToExpiration optional; This parameter specifies the number of calendar days prior to a contract expiration when the series of contracts will be switched to the next contract in the series. Valid values are 0 through 60. A value of 0 will tell the system to use the day of expiration. If not specified, the default value (1) is used, resulting in each contract in the series to run until (and including) the day prior to its expiration. This parameter only applies to multi-contract futures queries and is ignored for all other queries.
 #' @param contractRoll optional; For futures, multi-contract nearest queries (data parameter set to dailynearest, weeklynearest, monthlynearest, quarterlynearest or yearlynearest), this parameter can be set to one of two values (expiration, combined), and determines how the switch from one contract to the next in the series is calculated. When the value specified is 'expiration', the switch from one contract to the next in the series will be based on the expiration date (and the value of the 'daysToExpiration' parameter if specified). When the value specified is 'combined', a combination of volume and openinterest will be used to determine when to switch from one contract to the next in the series (when using this value, the 'daysToExpiration' parameter is ignored).
-#' @return xts
+#' @return data frame
 #' @examples
 #' getHistory(symbol = 'ESM19', type = 'dailyContinue')
 #' @seealso \url{https://www.barchart.com/ondemand/api/getHistory}

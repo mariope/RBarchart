@@ -2,10 +2,7 @@
 % Please edit documentation in R/getHistory.R
 \name{getHistory}
 \alias{getHistory}
-\title{getHistory Barchart data.
-The getHistory API is used to request historical time series data on stocks,
-indexes, mutual funds, ETFs, futures, foreign exchange, or cryptocurrencies.
-Historical data is available as tick, minute bars or end-of-day data.}
+\title{getHistory Barchart data.}
 \usage{
 getHistory(symbol, type, startDate = NULL, endDate = NULL,
   maxRecords = "1000000", interval = 1, order = "asc",
@@ -49,12 +46,13 @@ getHistory(symbol, type, startDate = NULL, endDate = NULL,
 \item{contractRoll}{optional; For futures, multi-contract nearest queries (data parameter set to dailynearest, weeklynearest, monthlynearest, quarterlynearest or yearlynearest), this parameter can be set to one of two values (expiration, combined), and determines how the switch from one contract to the next in the series is calculated. When the value specified is 'expiration', the switch from one contract to the next in the series will be based on the expiration date (and the value of the 'daysToExpiration' parameter if specified). When the value specified is 'combined', a combination of volume and openinterest will be used to determine when to switch from one contract to the next in the series (when using this value, the 'daysToExpiration' parameter is ignored).}
 }
 \value{
-xts
+data frame
 }
 \description{
-\code{getHistory} returns an xts.
-The data has:
-- Tot
+\code{getHistory} returns an data frame.
+The getHistory API is used to request historical time series data on stocks,
+indexes, mutual funds, ETFs, futures, foreign exchange, or cryptocurrencies.
+Historical data is available as tick, minute bars or end-of-day data.
 }
 \examples{
 getHistory(symbol = 'ESM19', type = 'dailyContinue')

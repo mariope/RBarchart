@@ -2,10 +2,7 @@
 % Please edit documentation in R/getQuote.R
 \name{getQuote}
 \alias{getQuote}
-\title{getQuote Barchart data.
-The getQuote API is used to request price data, either real-time,
-   delayed or end-of-day, by symbol on stocks, indexes, mutual funds, ETFs,
-   futures, foreign exchange, or cryptocurrencies.}
+\title{getQuote Barchart data.}
 \usage{
 getQuote(symbols, fields = NULL, only = NULL)
 }
@@ -17,12 +14,13 @@ getQuote(symbols, fields = NULL, only = NULL)
 \item{only}{optional; Returns only specified fields. Example symbol,name}
 }
 \value{
-xts
+data frame
 }
 \description{
-\code{getQuote} returns an xts.
-The data has:
-- Tot
+\code{getQuote} returns an data frame
+The getQuote API is used to request price data, either real-time,
+delayed or end-of-day, by symbol on stocks, indexes, mutual funds, ETFs,
+futures, foreign exchange, or cryptocurrencies.
 }
 \examples{
 getQuote(symbols = 'ESM19')
