@@ -23,8 +23,10 @@ delayed or end-of-day, by symbol on stocks, indexes, mutual funds, ETFs,
 futures, foreign exchange, or cryptocurrencies.
 }
 \examples{
+\donttest{
 getQuote(symbols = 'ESM19')
 getQuote(symbols = 'NGM19,ESM19', fields = 'openInterest')
+}
 }
 \seealso{
 \url{https://www.barchart.com/ondemand/api/getQuote}

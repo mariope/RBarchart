@@ -55,8 +55,10 @@ indexes, mutual funds, ETFs, futures, foreign exchange, or cryptocurrencies.
 Historical data is available as tick, minute bars or end-of-day data.
 }
 \examples{
+\donttest{
 getHistory(symbol = 'ESM19', type = 'dailyContinue')
 getHistory(symbol = 'ESM19', type = 'dailyContinue', startDate = '20100101')
+}
 }
 \seealso{
 \url{https://www.barchart.com/ondemand/api/getHistory}

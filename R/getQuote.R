@@ -11,27 +11,29 @@
 #' @param only optional; Returns only specified fields. Example symbol,name
 #' @return data frame
 #' @examples
+#' \donttest{
 #' getQuote(symbols = 'ESM19')
 #' getQuote(symbols = 'NGM19,ESM19', fields = 'openInterest')
+#' }
 #' @seealso \url{https://www.barchart.com/ondemand/api/getQuote}
 #' @export
 getQuote <- function(symbols, fields = NULL, only = NULL) {
 
-   if (!exists(".apikey") | !exists(".url")) {
-      print("Please, exec setAPIkey(\"<Your API key>\", premium = FALSE) function")
-      stop()
-   }
+   # if (!exists("apikey") | !exists("url")) {
+   #    print("Please, exec setAPIkey(\"<Your API key>\", premium = FALSE) function")
+   #    stop()
+   # }
 
    query <- 'getQuote.xml'
-   getMethod <- paste0(.url,
+   getMethod <- paste0(getOption("url"),
                        query,
-                       '?apikey=', .apikey,
+                       '?apikey=', getOption("apikey"),
                        '&symbols=', symbols,
                        '&fields=', fields,
                        '&only=', only)
 
-   res <- GET(getMethod)
-   res_df <- xmlToDataFrame(rawToChar(res$content))
+   res <- httr::GET(getMethod)
+   res_df <- XML::xmlToDataFrame(rawToChar(res$content))
    print(paste(res_df[[1, 'code']], res_df[[1, 'message']]))
    res_df <- res_df[-1, -c(1, 2)]
    return(res_df)

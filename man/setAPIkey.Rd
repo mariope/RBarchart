@@ -19,8 +19,10 @@ var
 The setAPIkey is used to setup the Barchart API key.
 }
 \examples{
-setAPIkey(key = '<Your Barchart API key>')
-setAPIkey(key = '<Your Barchart API key>', premium = TRUE)
+\dontrun{
+setAPIkey(apikey = '<Your Barchart API key>')
+setAPIkey(apikey = '<Your Barchart API key>', premium = TRUE)
+}
 }
 \seealso{
 \url{https://www.barchart.com/ondemand/api}

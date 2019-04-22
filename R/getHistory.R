@@ -25,8 +25,10 @@
 #' @param contractRoll optional; For futures, multi-contract nearest queries (data parameter set to dailynearest, weeklynearest, monthlynearest, quarterlynearest or yearlynearest), this parameter can be set to one of two values (expiration, combined), and determines how the switch from one contract to the next in the series is calculated. When the value specified is 'expiration', the switch from one contract to the next in the series will be based on the expiration date (and the value of the 'daysToExpiration' parameter if specified). When the value specified is 'combined', a combination of volume and openinterest will be used to determine when to switch from one contract to the next in the series (when using this value, the 'daysToExpiration' parameter is ignored).
 #' @return data frame
 #' @examples
+#' \donttest{
 #' getHistory(symbol = 'ESM19', type = 'dailyContinue')
 #' getHistory(symbol = 'ESM19', type = 'dailyContinue', startDate = '20100101')
+#' }
 #' @seealso \url{https://www.barchart.com/ondemand/api/getHistory}
 #' @export
 getHistory <- function(symbol, type, startDate = NULL, endDate = NULL, maxRecords = '1000000',
@@ -35,15 +37,15 @@ getHistory <- function(symbol, type, startDate = NULL, endDate = NULL, maxRecord
                        exchange = 'NYSE,AMEX,NASDAQ', backAdjust = 'false',
                        daysToExpiration = 1, contractRoll = 'expiration') {
 
-   if (!exists(".apikey") | !exists(".url")) {
-      warning("Please, exec setAPIkey(\"<Your API key>\", premium = FALSE) function")
-      stop()
-   }
+   # if (!exists("apikey") | !exists("url")) {
+   #    warning("Please, exec setAPIkey(\"<Your API key>\", premium = FALSE) function")
+   #    stop()
+   # }
 
    query <- 'getHistory.xml'
-   getMethod <- paste0(.url,
+   getMethod <- paste0(getOption("url"),
                        query,
-                       '?apikey=', .apikey,
+                       '?apikey=', getOption("apikey"),
                        '&symbol=', symbol,
                        '&type=', type,
                        '&startDate=', startDate,
@@ -63,8 +65,8 @@ getHistory <- function(symbol, type, startDate = NULL, endDate = NULL, maxRecord
                        '&contractRoll=', contractRoll
                        )
 
-   res <- GET(getMethod)
-   res_df <- xmlToDataFrame(rawToChar(res$content))
+   res <- httr::GET(getMethod)
+   res_df <- XML::xmlToDataFrame(rawToChar(res$content))
    print(paste(res_df[[1, 'code']], res_df[[1, 'message']]))
    res_df <- res_df[-1, -c(1, 2)]
    return(res_df)
