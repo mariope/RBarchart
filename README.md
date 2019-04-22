@@ -1,6 +1,6 @@
 # RBarchart v0.1.0
 
-[![Build Status](https://travis-ci.org/mariope/barronsCOT.png?branch=master)](https://travis-ci.org/mariope/barronsCOT)
+[![Build Status](https://travis-ci.org/mariope/RBarchart.png?branch=master)](https://travis-ci.org/mariope/RBarchart)
 
 Barchart OnDemand features a diverse set of market data and information APIs. 
 Pricing is based on the number of monthly queries and fields requested. 
