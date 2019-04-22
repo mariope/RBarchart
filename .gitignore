@@ -1,6 +1,5 @@
 packrat/lib*/
 .Rproj.user
-.Rbuildignore
 .Rprofile
 RBarchart.Rproj
 .RData

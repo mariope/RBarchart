@@ -6,10 +6,10 @@ Version: 0.1.0
 Authors@R: c(person("Mario Pisa", role = c("aut", "cre"),
 		     email = "mario.pisa@gmail.com"))
 Depends:
-   R (>= 3.3.3),
+   R (>= 3.3.3)
+Imports:
    httr (>= 1.3.1),
    XML (>= 3.98)
-Imports:
 Suggests:
 Maintainer: The package maintainer <mario.pisa@gmail.com>
 Description: Barchart OnDemand features a diverse set of market data and information APIs. 
