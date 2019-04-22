@@ -72,6 +72,7 @@ getHistory <- function(symbol, type, startDate = NULL, endDate = NULL, maxRecord
    res_df <- XML::xmlToDataFrame(rawToChar(res$content))
    print(paste(res_df[[1, 'code']], res_df[[1, 'message']]))
    res_df <- res_df[-1, -c(1, 2)]
+   rownames(res_df) <- NULL
    return(res_df)
 
 }
