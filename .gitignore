@@ -3,3 +3,5 @@ packrat/lib*/
 .Rbuildignore
 .Rprofile
 RBarchart.Rproj
+.RData
+.Rhistory
