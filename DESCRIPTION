@@ -11,7 +11,7 @@ Imports:
    httr (>= 1.3.1),
    XML (>= 3.98)
 Suggests:
-Maintainer: The package maintainer <mario.pisa@gmail.com>
+Maintainer: Mario Pisa <mario.pisa@gmail.com>
 Description: Barchart OnDemand features a diverse set of market data and information APIs. 
    Pricing is based on the number of monthly queries and fields requested. 
    We offer four packages: Small, Medium, Large, Enterprise. 
