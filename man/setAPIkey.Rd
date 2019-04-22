@@ -19,7 +19,7 @@ var
 The setAPIkey is used to setup the Barchart API key.
 }
 \examples{
-\dontrun{
+\donttest{
 setAPIkey(apikey = '<Your Barchart API key>')
 setAPIkey(apikey = '<Your Barchart API key>', premium = TRUE)
 }
