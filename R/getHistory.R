@@ -26,6 +26,7 @@
 #' @return data frame
 #' @examples
 #' getHistory(symbol = 'ESM19', type = 'dailyContinue')
+#' getHistory(symbol = 'ESM19', type = 'dailyContinue', startDate = '20100101')
 #' @seealso \url{https://www.barchart.com/ondemand/api/getHistory}
 #' @export
 getHistory <- function(symbol, type, startDate = NULL, endDate = NULL, maxRecords = '1000000',
@@ -66,6 +67,6 @@ getHistory <- function(symbol, type, startDate = NULL, endDate = NULL, maxRecord
    res_df <- xmlToDataFrame(rawToChar(res$content))
    print(paste(res_df[[1, 'code']], res_df[[1, 'message']]))
    res_df <- res_df[-1, -c(1, 2)]
-   return(res)
+   return(res_df)
 
 }

@@ -56,6 +56,7 @@ Historical data is available as tick, minute bars or end-of-day data.
 }
 \examples{
 getHistory(symbol = 'ESM19', type = 'dailyContinue')
+getHistory(symbol = 'ESM19', type = 'dailyContinue', startDate = '20100101')
 }
 \seealso{
 \url{https://www.barchart.com/ondemand/api/getHistory}
