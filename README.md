@@ -76,6 +76,8 @@ Historical data is available as tick, minute bars or end-of-day data.
 
 * R v3.3.3
 * R Studio - version 1.1.463
+* XML package v3.98
+* httr package v1.3.1
 
 ## Contributing
 
@@ -83,7 +85,7 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 
 ## Versioning
 
-I use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/mariope/barronsCOT/tags). 
+I use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/mariope/RBarchart/tags). 
 
 ## Authors
 

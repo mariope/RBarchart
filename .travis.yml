@@ -7,7 +7,7 @@ sudo: false
 warnings_are_errors: false
 
 install:
-    - Rscript -e 'install.packages(c("devtools", "XML", "httr"))'
+    - Rscript -e 'install.packages(c("XML", "httr"))'
 
 #env
 env:
