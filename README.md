@@ -1,4 +1,4 @@
-# RBarchart v0.1.0
+# RBarchart v0.2.0
 
 [![Build Status](https://travis-ci.org/mariope/RBarchart.png?branch=master)](https://travis-ci.org/mariope/RBarchart)
 
@@ -11,7 +11,7 @@ They offer four packages: Small, Medium, Large, Enterprise.
 [Barchart.com](https://www.barchart.com/) have available a free API to retrieve quotes and 
 historical data and they have a diverse premium set of market data and information APIs. See [Barchart OnDemand](https://www.barchart.com/ondemand)
 
-**RBarchart** package v0.1.0 implements **getQuote** and **getHistory** methods from Barchart API.
+**RBarchart** package v0.2.0 implements **getQuote**, **getHistory**, **getQuoteEod**, **getClosePrice**, **getFuturesExpirations**, **getFuturesSpecifications** methods from Barchart API.
 
 I hope in a near future to implement the premium methods.
 
@@ -27,11 +27,19 @@ If you install from devtools you do not need to do anything else.
 
 When you load the library, you obtain three functions: 
 
-- **setAPIkey** to set the Barchart API key and define if it is premium.
+- **setAPIkey** to set the Barchart API key and define if it is premium API.
 
-- **getQuote** to get quote data.
+- **getQuote** The getQuote API is used to request price data, either real-time, delayed or end-of-day, by symbol on stocks, indexes, mutual funds, ETFs, futures, foreign exchange, or cryptocurrencies.
 
-- **GetHistory** to retrieve historical data.
+- **GetHistory** The getHistory API is used to request historical time series data on stocks, indexes, mutual funds, ETFs, futures, foreign exchange, or cryptocurrencies. Historical data is available as tick, minute bars or end-of-day data.
+
+- **getQuoteEod** The getQuoteEod API is used to request end-of-day price data, by combined exchange and symbol, on stocks, indexes, mutual funds, ETFs, futures, foreign exchange, or cryptocurrencies. Historical data is available as tick, minute bars or end-of-day data.
+
+- **getClosePrice** The getClosePrice API provides the close price for given instruments for the given date.
+
+- **getFuturesExpirations** The getFuturesExpiration API from Barchart OnDemand provides first notice and last trade dates for futures contracts.
+
+- **getFuturesSpecifications** Barchart OnDemand's getFuturesSpecifications API provides contract information such as trading hours, contract size and tick size for futures contracts.
 
 ```
 library(RBarchart)
@@ -70,6 +78,34 @@ Historical data is available as tick, minute bars or end-of-day data.
 
 ```
 > getHistory(symbol = 'ESM19', type = 'dailyContinue')
+```
+
+### getQuoteEod
+
+The getQuoteEod API is used to request end-of-day price data, by combined exchange and symbol, on stocks, indexes, mutual funds, ETFs, futures, foreign exchange, or cryptocurrencies. Historical data is available as tick, minute bars or end-of-day data.
+
+```
+```
+
+### getClosePrice
+
+The getClosePrice API provides the close price for given instruments for the given date.
+
+```
+```
+
+### getFuturesExpirations
+
+The getFuturesExpiration API from Barchart OnDemand provides first notice and last trade dates for futures contracts.
+
+```
+```
+
+### getFuturesSpecifications
+
+Barchart OnDemand's getFuturesSpecifications API provides contract information such as trading hours, contract size and tick size for futures contracts.
+
+```
 ```
 
 ## Built With

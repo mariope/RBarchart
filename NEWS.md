@@ -7,6 +7,7 @@ Changes:
 * Added the getFuturesSpecifications XML method.
 * Added the getClosePrice XML method.
 * Added the getQuoteEod XML method.
+* Fix the Title and Description in DESCRIPTION file based on CRAN feedback.
 
 
 RBarchart v0.1.0 (Release date: 2019-04-22)
