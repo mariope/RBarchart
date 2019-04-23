@@ -1,7 +1,7 @@
 Package: RBarchart
 Type: Package
 Date: 2019-04-21
-Title: Barchart API for R
+Title: Barchart API
 Version: 0.2.0
 Authors@R: c(person("Mario Pisa", role = c("aut", "cre"),
 		     email = "mario.pisa@gmail.com"))
@@ -12,7 +12,8 @@ Imports:
    XML (>= 3.98)
 Suggests:
 Maintainer: Mario Pisa <mario.pisa@gmail.com>
-Description: Barchart OnDemand features a diverse set of market data and information APIs. 
+Description: A simple R client for Barchart OnDemand REST APIs. (<https://www.barchartondemand.com/api>)
+   Barchart OnDemand features a diverse set of market data and information APIs. 
    Pricing is based on the number of monthly queries and fields requested. 
    We offer four packages: Small, Medium, Large, Enterprise. 
 License: GPL-3 | file LICENSE
