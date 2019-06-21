@@ -7,7 +7,7 @@
 getHistory(symbol, type, startDate = NULL, endDate = NULL,
   maxRecords = "1000000", interval = 1, order = "asc",
   sessionFilter = NULL, splits = 1, dividends = 1, volume = "contract",
-  nearby = 1, jerq = 1, exchange = "NYSE,AMEX,NASDAQ",
+  nearby = 1, jerq = 1, exchange = "NYSE,AMEX,NASDAQ,COMEX",
   backAdjust = "false", daysToExpiration = 1, contractRoll = "expiration")
 }
 \arguments{
@@ -37,7 +37,7 @@ getHistory(symbol, type, startDate = NULL, endDate = NULL,
 
 \item{jerq}{optional; Whether to merge with JERQ data. Default 1. Example true}
 
-\item{exchange}{optional; The list of valid exchange codes to limit symbol search. Example NYSE,AMEX,NASDAQ}
+\item{exchange}{optional; The list of valid exchange codes to limit symbol search. Default NYSE,AMEX,NASDAQ,COMEX}
 
 \item{backAdjust}{optional; This parameter specifies whether the contracts in the series will be adjusted based on the roll-gap between the closing prices of the current contract and the previous contract on the day of the switch. Valid values are true and false. If not specified, the default value is false resulting in a non-adjusted query. This parameter only applies to multi-contract futures queries and is ignored for all other queries. Valid Values: true, false. Default false}
 
@@ -61,6 +61,8 @@ getHistory(symbol = 'ESM19', type = 'minutes')
 getHistory(symbol = 'ESM19', type = 'formTMinutes', interval = 30)
 getHistory(symbol = 'ESM19', type = 'dailyContinue', startDate = '20100101')
 getHistory(symbol = 'ESM19', type = 'daily', startDate = '20190101', endDate = '20190422')
+getHistory(symbol = 'GCQ19', type = 'dailyContinue', startDate = '20100101', endDate = '20190621', exchange = 'COMEX')
+getHistory(symbol = 'GCQ19', type = 'ticks', startDate = '20190621 10:00:00', endDate = '20190621 10:05:00', exchange = 'COMEX')
 }
 }
 \seealso{
