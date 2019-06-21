@@ -11,16 +11,16 @@ They offer four packages: Small, Medium, Large, Enterprise.
 [Barchart.com](https://www.barchart.com/) have available a free API to retrieve quotes and 
 historical data and they have a diverse premium set of market data and information APIs. See [Barchart OnDemand](https://www.barchart.com/ondemand)
 
-**RBarchart** package v0.2.0 implements **getQuote**, **getHistory**, **getQuoteEod**, **getClosePrice**, **getFuturesExpirations**, **getFuturesSpecifications** methods from Barchart API.
-
-I hope in a near future to implement the premium methods.
+**RBarchart** package v0.2.1 implements **getQuote**, **getHistory**, **getSymbolLookUp**, **getQuoteEod**, **getClosePrice**, **getFuturesExpirations**, **getFuturesSpecifications** methods from Barchart API.
 
 ### Prerequisities
 
 If you install from devtools you do not need to do anything else.
 
 ```
-> devtools::install_github("mariope/RBarchart")
+devtools::install_github("mariope/RBarchart")
+library(RBarchart)
+setAPIkey('<Your API key>', premium = FALSE)
 ```
 
 #### Getting started
@@ -29,9 +29,11 @@ When you load the library, you obtain three functions:
 
 - **setAPIkey** to set the Barchart API key and define if it is premium API.
 
-- **getQuote** The getQuote API is used to request price data, either real-time, delayed or end-of-day, by symbol on stocks, indexes, mutual funds, ETFs, futures, foreign exchange, or cryptocurrencies.
-
 - **GetHistory** The getHistory API is used to request historical time series data on stocks, indexes, mutual funds, ETFs, futures, foreign exchange, or cryptocurrencies. Historical data is available as tick, minute bars or end-of-day data.
+
+- **getSymbolLookUp** The getSymbolLookUp API provides a list of all instruments based on the keyword being passed.
+
+- **getQuote** The getQuote API is used to request price data, either real-time, delayed or end-of-day, by symbol on stocks, indexes, mutual funds, ETFs, futures, foreign exchange, or cryptocurrencies.
 
 - **getQuoteEod** The getQuoteEod API is used to request end-of-day price data, by combined exchange and symbol, on stocks, indexes, mutual funds, ETFs, futures, foreign exchange, or cryptocurrencies. Historical data is available as tick, minute bars or end-of-day data.
 
@@ -59,6 +61,24 @@ Set the API key and define if it is premium.
 
 In order to get an API key, please, visit [Barchart Ondemand](https://www.barchart.com/ondemand/api)
 
+### getHistory
+
+The getHistory API is used to request historical time series data on stocks,
+indexes, mutual funds, ETFs, futures, foreign exchange, or cryptocurrencies.
+Historical data is available as tick, minute bars or end-of-day data.
+
+```
+> getHistory(symbol = 'ESM19', type = 'dailyContinue')
+```
+
+### getSymbolLookUp
+
+The getSymbolLookUp API provides a list of all instruments based on the keyword being passed.
+
+```
+> getSymbolLookUp('Gold', limit = 100, exchanges = 'COMEX')
+```
+
 ### getQuote
 
 The getQuote API is used to request price data, either real-time, 
@@ -68,16 +88,6 @@ futures, foreign exchange, or cryptocurrencies.
 ```
 > getQuote(symbols = 'ESM19')
 > getQuote(symbols = 'NGM19,ESM19', fields = 'openInterest')
-```
-
-### getHistory
-
-The getHistory API is used to request historical time series data on stocks,
-indexes, mutual funds, ETFs, futures, foreign exchange, or cryptocurrencies.
-Historical data is available as tick, minute bars or end-of-day data.
-
-```
-> getHistory(symbol = 'ESM19', type = 'dailyContinue')
 ```
 
 ### getQuoteEod
