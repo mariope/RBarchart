@@ -23,16 +23,21 @@
 #' @param backAdjust optional; This parameter specifies whether the contracts in the series will be adjusted based on the roll-gap between the closing prices of the current contract and the previous contract on the day of the switch. Valid values are true and false. If not specified, the default value is false resulting in a non-adjusted query. This parameter only applies to multi-contract futures queries and is ignored for all other queries. Valid Values: true, false. Default false
 #' @param daysToExpiration optional; This parameter specifies the number of calendar days prior to a contract expiration when the series of contracts will be switched to the next contract in the series. Valid values are 0 through 60. A value of 0 will tell the system to use the day of expiration. If not specified, the default value (1) is used, resulting in each contract in the series to run until (and including) the day prior to its expiration. This parameter only applies to multi-contract futures queries and is ignored for all other queries. Valid Values: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60. Default 1. Example 1.
 #' @param contractRoll optional; For futures, multi-contract nearest queries (data parameter set to dailynearest, weeklynearest, monthlynearest, quarterlynearest or yearlynearest), this parameter can be set to one of two values (expiration, combined), and determines how the switch from one contract to the next in the series is calculated. When the value specified is 'expiration', the switch from one contract to the next in the series will be based on the expiration date (and the value of the 'daysToExpiration' parameter if specified). When the value specified is 'combined', a combination of volume and openinterest will be used to determine when to switch from one contract to the next in the series (when using this value, the 'daysToExpiration' parameter is ignored). Valid Values: expiration, combined. Default expiration. Example expiration
+#' @param output_type optional; options('df' | 'xts') default= 'df'
 #' @return data frame
 #' @examples
 #' \donttest{
 #' getHistory(symbol = 'ESM19', type = 'dailyContinue')
+#' getHistory(symbol = 'ESM19', type = 'dailyContinue', daysToExpiration = 8)
+#' getHistory(symbol = 'ESM19', type = 'dailyContinue', output_type = 'xts')
 #' getHistory(symbol = 'ESM19', type = 'minutes')
 #' getHistory(symbol = 'ESM19', type = 'formTMinutes', interval = 30)
 #' getHistory(symbol = 'ESM19', type = 'dailyContinue', startDate = '20100101')
 #' getHistory(symbol = 'ESM19', type = 'daily', startDate = '20190101', endDate = '20190422')
-#' getHistory(symbol = 'GCQ19', type = 'dailyContinue', startDate = '20100101', endDate = '20190621', exchange = 'COMEX')
-#' getHistory(symbol = 'GCQ19', type = 'ticks', startDate = '20190621 10:00:00', endDate = '20190621 10:05:00', exchange = 'COMEX')
+#' getHistory(symbol = 'GCQ19', type = 'dailyContinue', startDate = '20100101',
+#'    endDate = '20190621', exchange = 'COMEX', daysToExpiration = 8)
+#' getHistory(symbol = 'GCQ19', type = 'ticks', startDate = '20190621 10:00:00',
+#'    endDate = '20190621 10:05:00', exchange = 'COMEX')
 #' }
 #' @seealso \url{https://www.barchart.com/ondemand/api/getHistory}
 #' @export
@@ -40,7 +45,8 @@ getHistory <- function(symbol, type, startDate = NULL, endDate = NULL, maxRecord
                        interval = 1, order = 'asc', sessionFilter = NULL, splits = 1,
                        dividends = 1, volume = 'contract', nearby = 1, jerq = 1,
                        exchange = 'NYSE,AMEX,NASDAQ,COMEX', backAdjust = 'false',
-                       daysToExpiration = 1, contractRoll = 'expiration') {
+                       daysToExpiration = 1, contractRoll = 'expiration',
+                       output_type = 'df') {
 
    # if (!exists("apikey") | !exists("url")) {
    #    warning("Please, exec setAPIkey(\"<Your API key>\", premium = FALSE) function")
@@ -75,6 +81,13 @@ getHistory <- function(symbol, type, startDate = NULL, endDate = NULL, maxRecord
    print(paste(res_df[[1, 'code']], res_df[[1, 'message']]))
    res_df <- res_df[-1, -c(1, 2)]
    rownames(res_df) <- NULL
+
+   if (output_type == 'xts') {
+      res_df <- as.xts(res_df[, c(-(1:3))], order.by = as.POSIXct(res_df[, 2], format = "%Y-%m-%dT%H:%M:%S"))
+      storage.mode(res_df) <- 'numeric'
+      res_df <- na.locf(res_df)
+   }
+
    return(res_df)
 
 }
