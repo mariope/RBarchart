@@ -83,9 +83,9 @@ getHistory <- function(symbol, type, startDate = NULL, endDate = NULL, maxRecord
    rownames(res_df) <- NULL
 
    if (output_type == 'xts') {
-      res_df <- as.xts(res_df[, c(-(1:3))], order.by = as.POSIXct(res_df[, 2], format = "%Y-%m-%dT%H:%M:%S"))
+      res_df <- xts::as.xts(res_df[, c(-(1:3))], order.by = as.POSIXct(res_df[, 2], format = "%Y-%m-%dT%H:%M:%S"))
       storage.mode(res_df) <- 'numeric'
-      res_df <- na.locf(res_df)
+      res_df <- zoo::na.locf(res_df)
    }
 
    return(res_df)
