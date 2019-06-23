@@ -6,12 +6,12 @@ Version: 0.2.1
 Authors@R: c(person("Mario Pisa", role = c("aut", "cre"),
 		     email = "mario.pisa@gmail.com"))
 Depends:
-   R (>= 3.3.3)
-Imports:
-   httr (>= 1.3.1),
-   XML (>= 3.98),
+   R (>= 3.3.3),
    xts (>= 0.10),
    zoo (>= 1.8)
+Imports:
+   httr (>= 1.3.1),
+   XML (>= 3.98)
 Suggests:
 Maintainer: Mario Pisa <mario.pisa@gmail.com>
 Description: A simple R client for Barchart OnDemand REST APIs. (<https://www.barchartondemand.com/api>)

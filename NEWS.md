@@ -1,4 +1,13 @@
-RBarchart v0.2.0 (Release date: ?)
+RBarchart v0.2.1 (Release date: 2019-06-22)
+================
+
+Changes:
+
+* Added the getSymbolLookUp XML method.
+* Added an option to create an eXtended Time Series (xts) output to getHistory function.
+
+
+RBarchart v0.2.0
 ================
 
 Changes:

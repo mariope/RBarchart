@@ -1,4 +1,4 @@
-# RBarchart v0.2.0
+# RBarchart v0.2.1
 
 [![Build Status](https://travis-ci.org/mariope/RBarchart.png?branch=master)](https://travis-ci.org/mariope/RBarchart)
 
